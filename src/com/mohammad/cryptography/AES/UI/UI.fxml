@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mohammad.cryptography.AES.UI.UIEventHandler">
+   <children>
+      <SplitPane dividerPositions="0.5482233502538071" prefHeight="394.0" prefWidth="593.0" VBox.vgrow="ALWAYS">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <Region HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Region>
+                              <Label text="AES Encryption" textFill="#31da25">
+                                 <font>
+                                    <Font name="Times New Roman" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Region layoutX="90.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <TextField fx:id="filePathTF" promptText="Input File Path" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="openBtn" mnemonicParsing="false" onMouseClicked="#OpenInputFile" text="Open" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="browseBtn" mnemonicParsing="false" onMouseClicked="#Browse" text="Browse" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </HBox>
+                        <Label text="Encryption Key" />
+                        <HBox layoutX="10.0" layoutY="57.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <TextField fx:id="l_insertKeyTF" promptText="Pleas set your Key and clic Insert or Select Key File" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="insertKeyBtn" mnemonicParsing="false" onMouseClicked="#InsertKey" text="Insert" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="57.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="openKeyBtn" mnemonicParsing="false" onMouseClicked="#OpenKeyFile" text="Open Key File" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Pane HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="filePathLabel" />
+                                 </children>
+                              </Pane>
+                              <Button fx:id="chooseKeyBtn" mnemonicParsing="false" onMouseClicked="#ChooseKey" text="Choose Key" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="135.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="decryptBtn" mnemonicParsing="false" onMouseClicked="#fileDecrypt" text="Decrypt" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="l_timeLabel" text="TIME  00:00" textAlignment="CENTER" textFill="#dd2f2f">
+                                 <padding>
+                                    <Insets top="4.0" />
+                                 </padding>
+                              </Label>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="EncryptBtn" mnemonicParsing="false" onMouseClicked="#fileEncrypt" text="Encrypt" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="58.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="plainTextDetailesBtn" mnemonicParsing="false" text="Plain Detailes" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="cypherTextDetailesBtn" mnemonicParsing="false" text="Cypher Detailes" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Region layoutX="102.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="resultBtn" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#OpenResultFile" text="Result">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Region layoutX="206.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="allKeysBtn" layoutX="206.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#OpenAllKeysFile" text="AllKeys" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox layoutX="6.0" layoutY="33.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Input Text">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="plainTextArea" layoutX="4.0" layoutY="33.0" prefHeight="93.0" prefWidth="257.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="33.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <Label text="Key" />
+                        <TextField fx:id="r_keyTF" prefHeight="25.0" prefWidth="251.0" promptText="Pleas set AES key you want to use..">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox>
+                           <children>
+                              <Button fx:id="r_encryptBtn" mnemonicParsing="false" onMouseClicked="#textAreaEncrypti" text="Encrypt" HBox.hgrow="ALWAYS" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="r_decryptBtn" mnemonicParsing="false" onMouseClicked="#textAreaDecrypti" text="Decrypt" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <HBox prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="17.0" prefWidth="92.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="r_timeLabel" text="TIME  99:99" textFill="#dd4444" HBox.hgrow="ALWAYS" />
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Label text="Output Text" />
+                        <TextArea fx:id="cypherTextArea" prefHeight="113.0" prefWidth="251.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <HBox>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Separator prefHeight="0.0" prefWidth="355.0" HBox.hgrow="ALWAYS" />
+                  <HBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="  Status: " />
+                        <Label fx:id="statusBarLabel" layoutX="10.0" layoutY="10.0" textFill="#0665ff" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
